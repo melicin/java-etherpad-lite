@@ -196,6 +196,30 @@ public class EPLiteClient {
         return this.post("createAuthorIfNotExistsFor", args);
     }
 
+    /**
+     * Returns an array of all pads this author contributed to.
+     * 
+     * @param authorID string
+     * @return HashMap
+     */
+    public HashMap listPadsOfAuthor(String authorID) {
+        HashMap args = new HashMap();
+        args.put("authorID", authorID);
+        return this.get("listPadsOfAuthor", args);
+    }
+
+    /**
+     * Returns an array of authors who contributed to this pad.
+     * 
+     * @param authorID string
+     * @return HashMap
+     */
+    public HashMap listAuthorsOfPad(String padId) {
+        HashMap args = new HashMap();
+        args.put("padID", padId);
+        return this.get("listAuthorsOfPad", args);
+    }
+
     // Sessions
     // Sessions can be created between a group and an author. This allows an author to access more than one group. The sessionID will be set as a
     // cookie to the client and is valid until a certain date. Only users with a valid session for this group, can access group pads. You can create a
